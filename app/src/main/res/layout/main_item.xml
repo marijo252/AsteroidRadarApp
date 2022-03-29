@@ -15,7 +15,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> onClickListener.onClick(asteroid)}">
+        android:onClick="@{() -> onClickListener.onClick(asteroid)}"
+        android:contentDescription="@{@string/asteroid_name(asteroid.codename)}">
 
         <TextView
             android:id="@+id/asteroid_name"
