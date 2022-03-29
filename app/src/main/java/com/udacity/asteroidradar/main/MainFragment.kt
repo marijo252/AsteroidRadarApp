@@ -36,9 +36,7 @@ class MainFragment : Fragment() {
                 viewModel.onAsteroidNavigated()
             }
         })
-
         setHasOptionsMenu(true)
-
         return binding.root
     }
 
@@ -48,6 +46,11 @@ class MainFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.show_week_menu -> viewModel.updateAsteroids(AsteroidsFilter.WEEK)
+            R.id.show_today_menu -> viewModel.updateAsteroids(AsteroidsFilter.TODAY)
+            else -> viewModel.updateAsteroids(AsteroidsFilter.ALL)
+        }
         return true
     }
 }

@@ -2,7 +2,6 @@ package com.udacity.asteroidradar.api
 
 import com.udacity.asteroidradar.domain.Asteroid
 import com.udacity.asteroidradar.Constants
-import com.udacity.asteroidradar.domain.TodayImage
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
