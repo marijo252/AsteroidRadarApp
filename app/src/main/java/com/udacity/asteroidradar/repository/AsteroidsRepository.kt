@@ -35,7 +35,11 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
 
     suspend fun getPictureOfDay(): PictureOfDay{
         return withContext(Dispatchers.IO) {
-            toDomainModel(database.pictureOfDayDao.getPictureOfDay())
+            toDomainModel(database.pictureOfDayDao.getPictureOfDay() ?: DatabasePictureOfDay(
+                mediaType = Constants.DEFAULT_IMAGE_MEDIATYPE,
+                title = Constants.DEFAULT_IMAGE_TITLE,
+                url = Constants.DEFAULT_IMAGE_URL
+            ))
         }
     }
 
@@ -45,7 +49,9 @@ class AsteroidsRepository(private val database: AsteroidsDatabase) {
             val asteroids = parseAsteroidsJsonResult(JSONObject(asteroidsNetwork))
             database.asteroidDao.insertAll(*asteroids.asDatabaseModel())
             val pictureOfDay = Network.retrofitService.getPictureOfDay(Constants.API_KEY)
-            database.pictureOfDayDao.insertPictureOfDay(toDatabaseModel(pictureOfDay))
+            if(pictureOfDay.mediaType == "image"){
+                database.pictureOfDayDao.insertPictureOfDay(toDatabaseModel(pictureOfDay))
+            }
         }
     }
 
