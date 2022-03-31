@@ -7,3 +7,5 @@ Use the updated Gradle version in the `~/gradle/wrapper/gradle-wrapper.propertie
 ```
 distributionUrl = https\://services.gradle.org/distributions/gradle-6.1.1-all.zip
 ```
+## Note: Note to reviewer
+please add the api key in the Constants.kt file 
