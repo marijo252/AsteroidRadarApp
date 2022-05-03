@@ -1,11 +1,15 @@
-# Purpose of this Folder
+# Asteroid radar app
+This project is the second android project I created with the Udacity Android nanodegree program and consited in creating and app to view the asteroids detected by NASA that pass near Earth. To complete the app, I apply skills such as fetching data from the internet, saving data to a database, and display the data in a clear, compelling UI.
 
-This folder should contain the scaffolded project files to get a student started on their project. This repo will be added to the Classroom for students to use, so please do not have any solutions in this folder.
+## Concept
+This is a more complete application which required the added knowledge learned from the Udacity program, such concepts were:
 
-## Note: Android Kotlin Gradle Update
-Use the updated Gradle version in the `~/gradle/wrapper/gradle-wrapper.properties` file:
-```
-distributionUrl = https\://services.gradle.org/distributions/gradle-6.1.1-all.zip
-```
-## Note: Note to reviewer
-please add the api key in the Constants.kt file 
+1. Retrofit library to download the data from the Internet.
+2. Moshi to convert the JSON data we are downloading to usable data in the form of custom classes.
+3. Glide library to download an cache images.
+4. RecyclerView to display the asteroids in a list.
+5. MVVM pattern
+6. Live data
+7. Navigation
+8. Room
+
